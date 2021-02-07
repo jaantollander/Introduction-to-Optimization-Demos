@@ -7,7 +7,7 @@ transition = "fade"
 theme = "black" # white
 +++
 
-# The Simplex $M$-method
+# The Simplex M-method
 
 $$
 \newcommand{\red}[1]{\textcolor{red}{#1}}
@@ -25,7 +25,7 @@ $$
 $$\begin{aligned}
 \min\, & 4x_1 + 6x_2 \\
 \mathrm{s.t.}\, & x_1 + x_2 ≥ 5 \\
-& 3x_2 + 8x_2 ≥ 24 \\
+& 3x_1 + 8x_2 ≥ 24 \\
 & x_1≥0, x_2≥0
 \end{aligned}$$
 </div>
@@ -42,7 +42,7 @@ The initial solution $x_1=x_2=0$ is not feasible!
 $$\begin{aligned}
 \dred{\max}\, & -4x_1 -6x_2 \\
 \mathrm{s.t.}\, & x_1 + x_2 \red{- s_1 =} 5 \\
-& 3x_2 + 8x_2 \red{- s_2 =} 24 \\
+& 3x_1 + 8x_2 \red{- s_2 =} 24 \\
 & x_1≥0, x_2≥0, \red{s_1≥0, s_2≥0}
 \end{aligned}$$
 </div>
@@ -63,7 +63,7 @@ Add surplus variables $\red{s_i}.$
 $$\begin{aligned}
 \max_{x}\, & -4x_1 -6x_2 - \dorange{M}\cyan{R_1} - \dorange{M}\cyan{R_2} \\
 \mathrm{s.t.}\, & x_1 + x_2 - s_1 + \cyan{R_1} = 5 \\
-& 3x_2 + 8x_2 - s_2 + \cyan{R_2} = 24 \\
+& 3x_1 + 8x_2 - s_2 + \cyan{R_2} = 24 \\
 & x_1≥0, x_2≥0, s_1≥0, s_2≥0, \cyan{R_1≥0, R_2≥0}
 \end{aligned}$$
 </div>
@@ -163,7 +163,7 @@ $\dcyan{R_2}$ | $3$ | $\cyan{8}$ | $0$ | $-1$ | $0$ | $1$ | $24$
 
 
 {{% fragment %}}
-Perform Gaussian elimination on the Simplex tableau usign the pivot row.
+Perform Gaussian elimination on the Simplex tableau usign the pivot row on the pivot column.
 {{% /fragment %}}
 
 ---
@@ -208,7 +208,7 @@ $\dcyan{R_1}$ | $\cyan{0.625}$ | $0$ | $-1$ | $0.125$ | $1$ | $-0.125$ | $2$
 $x_2$ | $0.375$ | $1$ | $0$ | $-0.125$ | $0$ | $0.125$ | $3$
 
 {{% fragment %}}
-Perform Gaussian elimination on the Simplex tableau usign the pivot row.
+Perform Gaussian elimination on the Simplex tableau usign the pivot row on the pivot column.
 {{% /fragment %}}
 
 ---

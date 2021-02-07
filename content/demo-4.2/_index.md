@@ -25,10 +25,14 @@ $$
 $$\begin{aligned}
 \min\, & 4x_1 + 6x_2 \\
 \mathrm{s.t.}\, & x_1 + x_2 ≥ 5 \\
-& 3x_2 + 8x_2 ≥ 24 \\
+& 3x_1 + 8x_2 ≥ 24 \\
 & x_1≥0, x_2≥0
 \end{aligned}$$
 </div>
+
+{{% fragment %}}
+The initial solution $x_1=x_2=0$ is not feasible!
+{{% /fragment %}}
 
 ---
 
@@ -38,7 +42,7 @@ $$\begin{aligned}
 $$\begin{aligned}
 \dred{\max}\, & -4x_1 -6x_2 \\
 \mathrm{s.t.}\, & x_1 + x_2 \red{- s_1 =} 5 \\
-& 3x_2 + 8x_2 \red{- s_2 =} 24 \\
+& 3x_1 + 8x_2 \red{- s_2 =} 24 \\
 & x_1≥0, x_2≥0, \red{s_1≥0, s_2≥0}
 \end{aligned}$$
 </div>
@@ -59,14 +63,18 @@ Add surplus variables $\red{s_i}.$
 $$\begin{aligned}
 \max\, & -\cyan{z_1} -\cyan{z_2} \\
 \mathrm{s.t.}\, & x_1 + x_2 - s_1 + \cyan{z_1} = 5 \\
-& 3x_2 + 8x_2 - s_2 + \cyan{z_2} = 24 \\
+& 3x_1 + 8x_2 - s_2 + \cyan{z_2} = 24 \\
 & x_1≥0, x_2≥0, s_1≥0, s_2≥0, \cyan{z_1≥0, z_2≥0}
 \end{aligned}$$
 </div>
 
+{{% fragment %}}
 Variables $\cyan{z_i}$ measure infeasibility.
+{{% /fragment %}}
 
+{{% fragment %}}
 We use it to form the Simplex tableau.
+{{% /fragment %}}
 
 ---
 
@@ -101,8 +109,8 @@ Use Gaussian elimination on $\cyan{z}$-row such that $\dred{z_i}$ variables beco
 . | $x_1$ | $x_2$ | $s_1$ | $s_2$ | $\dred{z_1}$ | $\dred{z_2}$ | Sol
 :-|-:|-:|-:|-:|-:|-:|-:
 $z$ | $0$ | $0$ | $0$ | $0$ | $\red{1}$ | $\red{1}$ | $0$
-$z_1$ | $1$ | $0$ | $-1.6$ | $0.2$ | $1.6$ | $-0.2$ | $3.2$
-$z_2$ | $0$ | $1$ | $0.6$ | $-0.2$ | $-0.6$ | $0.2$ | $1.8$
+$x_1$ | $1$ | $0$ | $-1.6$ | $0.2$ | $1.6$ | $-0.2$ | $3.2$
+$x_2$ | $0$ | $1$ | $0.6$ | $-0.2$ | $-0.6$ | $0.2$ | $1.8$
 
 {{% fragment %}}
 We obtain the solution by using Simplex algorithm.
@@ -119,8 +127,8 @@ All artificial variables $\dred{z_i}$ are non-basic $(\red{=0}).$ We can remove 
 . | $x_1$ | $x_2$ | $s_1$ | $s_2$ | Sol
 :-|-:|-:|-:|-:|-:|-:|-:
 $\dorange{z}$ | $4$ | $6$ | $0$ | $0$ | $0$
-$z_1$ | $1$ | $0$ | $-1.6$ | $0.2$ | $3.2$
-$z_2$ | $0$ | $1$ | $0.6$ | $-0.2$ | $1.8$
+$x_1$ | $1$ | $0$ | $-1.6$ | $0.2$ | $3.2$
+$x_2$ | $0$ | $1$ | $0.6$ | $-0.2$ | $1.8$
 
 {{% fragment %}}
 We remove all artifical variables and reintroduce the objective function.
@@ -137,8 +145,8 @@ We can use Gaussian elimination on $\dorange{z}$-row to obtain the solution.
 . | $x_1$ | $x_2$ | $s_1$ | $s_2$ | Sol
 :-|-:|-:|-:|-:|-:|-:|-:
 $z$ | $0$ | $0$ | $2.8$ | $0.4$ | $\dorange{-23.6}$
-$z_1$ | $1$ | $0$ | $-1.6$ | $0.2$ | $\red{3.2}$
-$z_2$ | $0$ | $1$ | $0.6$ | $-0.2$ | $\cyan{1.8}$
+$x_1$ | $1$ | $0$ | $-1.6$ | $0.2$ | $\red{3.2}$
+$x_2$ | $0$ | $1$ | $0.6$ | $-0.2$ | $\cyan{1.8}$
 
 {{% fragment %}}
 The coefficients on the objective row are positive, so we have reached the optimum.
